@@ -1,7 +1,7 @@
 import { ChevronLeftOutlined } from "@mui/icons-material";
 import styled from "@emotion/styled";
 // import styled from "styled-components";
-import media, { mqGreater } from "../utils/media";
+import { mqGreater } from "../utils/media";
 
 const Styled = {
   MainContainer: styled.div`
@@ -25,17 +25,6 @@ const Styled = {
       position: relative;
       margin: 0 auto;
     }
-
-    //   ${media.lessThan("md")`
-    //   max-width: 35rem;
-    //   position:relative;
-    //   margin: 0 auto;
-    //   `}
-    //   ${media.greaterThan("sm")`
-    //   max-width: 34rem;
-    //   position:relative;
-    //   margin: 0 auto;
-    // `}
   `,
   IconChevron: styled(ChevronLeftOutlined)`
     &&& {
