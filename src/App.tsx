@@ -13,6 +13,10 @@ import MyPokemon from "./pages/MyPokemon";
 const App: React.FC = () => {
   const { petsList, petsAdd, petsRemove } = PetsContext();
 
+  const NotFound = () => {
+    return <Redirect to="/" />;
+  };
+
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
@@ -30,6 +34,7 @@ const App: React.FC = () => {
               <Route path="/pokemon/:name/:id" component={Detail} exact />
               <Route path="/my-pokemon" component={MyPokemon} exact />
               <Route exact path="/" render={() => <Redirect to="/pokemon" />} />
+              <Route component={NotFound} exact />
             </Switch>
           </BrowserRouter>
         </GlobalContext.Provider>
