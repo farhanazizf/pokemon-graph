@@ -16,6 +16,7 @@ import FabChildren from "../../components/fab-children";
 import { IPets } from "../../context/types";
 import useToast from "../../components/toast";
 import { uuid } from "../../utils/uid";
+import Spinner from "../../components/loader";
 
 const ImagePokemons = React.lazy(() =>
   import("./style").then((module) => ({
@@ -214,7 +215,7 @@ const Detail: React.FC = () => {
                 <CircularProgress />
               </Styled.LoadingWrapper>
             ) : (
-              <React.Suspense fallback={<CircularProgress />}>
+              <React.Suspense fallback={<Spinner />}>
                 <ImagePokemons
                   id={pokemons?.pokemon.id || ""}
                   name={pokemons?.pokemon.name || ""}

@@ -1,10 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
-import { CircularProgress } from "@mui/material";
-// import { MainLayout } from "../../components/main-layout";
 import { Styled, SkeletonCard } from "../Homepage/style";
 import GlobalContext from "../../context/global-context";
+import Spinner from "../../components/loader";
 
 const CardPokemon = React.lazy(() => import("../Homepage/style"));
 
@@ -31,7 +30,7 @@ const MyPokemon: React.FC = () => {
         </div>
 
         <div className="listWrapper">
-          <React.Suspense fallback={<CircularProgress />}>
+          <React.Suspense fallback={<Spinner />}>
             {loading
               ? [...Array(6)].map((_, i) => <SkeletonCard key={i} />)
               : pets.map((val, i) => (

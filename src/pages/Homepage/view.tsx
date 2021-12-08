@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import GlobalContext from "../../context/global-context";
 import { usePokemon } from "./service";
-import { CircularProgress } from "@mui/material";
+import Spinner from "../../components/loader";
 
 const CardPokemon = React.lazy(() => import("./style"));
 
@@ -71,7 +71,7 @@ const HomepageView: React.FC = () => {
           }
         >
           <div className="listWrapper">
-            <React.Suspense fallback={<CircularProgress />}>
+            <React.Suspense fallback={<Spinner />}>
               {loading && !pokemons
                 ? [...Array(6)].map((_, i) => <SkeletonCard key={i} />)
                 : pokemons?.pokemons.results?.map((val, i) => (
