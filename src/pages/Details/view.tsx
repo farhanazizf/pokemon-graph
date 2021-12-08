@@ -55,6 +55,9 @@ const Detail: React.FC = () => {
   if (pokemons?.pokemon.id === null) {
     return <Redirect to="/" />;
   }
+  if (id && myPets.length === 0) {
+    return <Redirect to="/my-pokemon" />;
+  }
 
   const idPokemon = (id: string) => {
     if (id.length > 3) {
