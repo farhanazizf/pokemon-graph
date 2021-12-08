@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { CircularProgress, Skeleton } from "@mui/material";
-// import { MainLayout } from "../../components/main-layout";
 import GlobalContext from "../../context/global-context";
 import { usePokemonDetail } from "./service";
 import {
@@ -184,11 +183,6 @@ const Detail: React.FC = () => {
                 #{idPokemon(`${pokemons?.pokemon.id}`)} |&nbsp;
                 {upperFirst(pokemons?.pokemon.name || "")}
               </p>
-              {/* <div className="nickWrap">
-                {myPets.map((val) => (
-                  <p key={val.id}>{val.nickname}</p>
-                ))}
-              </div> */}
               {myPets.length > 0 ? (
                 <div className="ownedWrap">
                   <p>OWNED</p>

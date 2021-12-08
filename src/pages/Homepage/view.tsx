@@ -45,7 +45,7 @@ const HomepageView: React.FC = () => {
       <Toast />
       <Styled.SectionList>
         <div className="listTitle">
-          <p>List Pokemon || {pokemons?.pokemons.results.length}</p>
+          <p>List Pokemon</p>
         </div>
 
         <InfiniteScroll

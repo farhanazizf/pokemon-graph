@@ -10,7 +10,6 @@ const Styled = {
     flex-direction: column;
   `,
   MainWrapper: styled.div`
-    // background: ${(props) => props.theme.colors["bg-pokemon-bug"]};
     width: 100%;
     padding-bottom: 56px;
 

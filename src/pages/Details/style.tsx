@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import {
   Box,
   Button,
-  Fab,
   InputLabel,
   LinearProgress,
   TextField,
@@ -17,7 +16,7 @@ import Warning from "@mui/icons-material/Warning";
 export const Styled = {
   SectionDetails: styled.section`
     position: relative;
-    ::-webkit-scrollbar {
+    &.::-webkit-scrollbar {
       display: none;
     }
     .flexWrap {
@@ -246,46 +245,12 @@ export const Styled = {
       }
     }
   `,
-  AboutWrapper: styled.div<{ pokeType?: string }>`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    color: ${(props) =>
-      props.theme.colors[`pokemon-${props.pokeType || "unknown"}`]};
-
-    div.labelName {
-      width: 30%;
-      text-transform: capitalize;
-      margin-right: 20px;
-      color: black;
-    }
-    div.valueProf {
-      text-transform: capitalize;
-      font-weight: 700;
-    }
-  `,
   LoadingWrapper: styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 350px;
     min-width: 350px;
-  `,
-  Fab: styled(Fab)<{ pokemontype?: string }>`
-    &&& {
-      background: ${(props) =>
-        props.theme.colors[`pokemon-${props.pokemontype || "unknown"}`]};
-      text-transform: none;
-      color: white;
-      margin: 0px;
-      top: auto;
-      right: 20px;
-      bottom: 70px;
-      left: auto;
-      position: fixed;
-      opacity: 0.5;
-    }
   `,
   ModalWrapper: styled.div`
     padding: 10px;
@@ -452,7 +417,6 @@ export const CustomizedProgressBars: React.FC<{
   value: number;
   pokemonType?: string;
 }> = ({ value, pokemonType }) => {
-  // console.log(value);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Styled.BorderLinearProgress
@@ -486,63 +450,6 @@ export const StatsInfo: React.FC<{
     </Styled.FlexWrap>
   );
 };
-
-// export const InfoDivider: React.FC<{
-//   weight: number;
-//   type: string;
-//   height: number;
-//   habitat: string;
-// }> = ({ weight, type, height, habitat }) => {
-//   return (
-//     <Styled.FlexWrap>
-//       <div className="infoWrapper">
-//         <h2>{weight}kg</h2>
-//         <p>Weight</p>
-//       </div>
-//       <Styled.Divider pokemonType={type} />
-//       <div className="infoWrapper">
-//         <h2>{habitat || "unknown"}</h2>
-//         <p>Habitat</p>
-//       </div>
-//       <Styled.Divider pokemonType={type} />
-//       <div className="infoWrapper">
-//         <h2>{height}m</h2>
-//         <p>Height</p>
-//       </div>
-//     </Styled.FlexWrap>
-//   );
-// };
-// export const InfoWithLabel: React.FC<{
-//   type: string;
-//   label: string;
-// }> = ({ type, label, children }) => {
-//   return (
-//     <Styled.AboutWrapper pokeType={type}>
-//       <div className="labelName">
-//         <p>{label}</p>
-//       </div>
-
-//       <div className="valueProf">{children}</div>
-//     </Styled.AboutWrapper>
-//   );
-// };
-
-// export const FloatingCatchButton: React.FC<{
-//   pokemontype?: string;
-//   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-// }> = ({ pokemontype, ...rest }) => {
-//   return (
-//     <Styled.Fab
-//       variant="extended"
-//       aria-label="add"
-//       pokemontype={pokemontype}
-//       {...rest}
-//     >
-//       <Favorite sx={{ mr: 1 }} />
-//       Catch Pokemon
-//     </Styled.Fab>
-//   );
-// };
 
 export const AnimationLoading: React.FC<{ type?: string }> = ({ type }) => {
   return (
