@@ -32,7 +32,7 @@ const GET_POKEMONS_DETAILS = gql`
 
 export const usePokemonDetail = (name: string) => {
   const gqlVariables = {
-    name,
+    name: name.toLowerCase(),
   };
 
   const {

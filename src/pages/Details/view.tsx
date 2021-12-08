@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { CircularProgress, Skeleton } from "@mui/material";
 import GlobalContext from "../../context/global-context";
 import { usePokemonDetail } from "./service";
@@ -51,6 +51,10 @@ const Detail: React.FC = () => {
     : pets.filter((val) => val.pokemon === pokemons?.pokemon.name);
 
   if (error) setToast({ message: error.message });
+
+  if (pokemons?.pokemon.id === null) {
+    return <Redirect to="/" />;
+  }
 
   const idPokemon = (id: string) => {
     if (id.length > 3) {

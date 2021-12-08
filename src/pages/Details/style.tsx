@@ -443,7 +443,9 @@ export const StatsInfo: React.FC<{
       </div>
       <div className="statsIndicator">
         <CustomizedProgressBars
-          value={value < 200 ? (100 / 200) * value : (100 / 300) * value}
+          value={
+            value < 200 ? (100 / 200) * value : (100 / (value + 100)) * value
+          }
           pokemonType={type || "unknown"}
         />
       </div>
