@@ -443,7 +443,7 @@ export const StatsInfo: React.FC<{
       </div>
       <div className="statsIndicator">
         <CustomizedProgressBars
-          value={(100 / 200) * value}
+          value={value < 200 ? (100 / 200) * value : (100 / 300) * value}
           pokemonType={type || "unknown"}
         />
       </div>
@@ -502,7 +502,7 @@ export const ModalNickname: React.FC<IModals> = ({
                 <HighlightOffIcon className="fail" />
 
                 <p className="message">
-                  Your fail catch the pokemon. please try again later.
+                  You fail to catch the pokemon. please try again later.
                 </p>
               </div>
             )}
