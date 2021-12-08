@@ -6,6 +6,10 @@ export const initialTab = [
   // { category: "about", name: "About" },
 ];
 
+export interface IImagePokemon {
+  name: string;
+  id: string | number;
+}
 export interface IConfirm {
   visible: boolean;
   id: string | number;

@@ -3,7 +3,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { mqLess } from "../../utils/media";
 
-const Styled = {
+export const Styled = {
   SectionList: styled.section`
     padding: 12px 24px;
     flex-wrap: nowrap;
@@ -20,6 +20,18 @@ const Styled = {
       width: 100%;
       justify-content: space-between;
       flex-wrap: wrap;
+    }
+    div.emptyWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.5;
+
+      margin-top: 50px;
+
+      svg {
+        font-size: 48px;
+      }
     }
   `,
   ItemWrapper: styled.div`
@@ -149,7 +161,7 @@ const Styled = {
   `,
 };
 
-export const CardPokemon: React.FC<{
+const CardPokemon: React.FC<{
   name: string;
   id: string;
   url: string;
@@ -193,4 +205,4 @@ export const SkeletonCard: React.FC = () => {
   );
 };
 
-export default Styled;
+export default CardPokemon;

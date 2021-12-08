@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Favorite from "@mui/icons-material/Favorite";
 import {
   Box,
   Button,
@@ -13,11 +12,9 @@ import Modals from "../../components/modal";
 import { IModalChoice, IModalConfirm, IModals } from "./types";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { Warning } from "@mui/icons-material";
-// import { IColorPokemon } from "./types";
-// import { feetDisplay, poundDisplay } from "../../utils/converter";
+import Warning from "@mui/icons-material/Warning";
 
-const Styled = {
+export const Styled = {
   SectionDetails: styled.section`
     position: relative;
     ::-webkit-scrollbar {
@@ -471,7 +468,6 @@ export const StatsInfo: React.FC<{
   value: number;
   statName: string;
 }> = ({ type, value, statName }) => {
-  // console.log(value);
   return (
     <Styled.FlexWrap pokeType={type}>
       <div className="statName">
@@ -491,62 +487,62 @@ export const StatsInfo: React.FC<{
   );
 };
 
-export const InfoDivider: React.FC<{
-  weight: number;
-  type: string;
-  height: number;
-  habitat: string;
-}> = ({ weight, type, height, habitat }) => {
-  return (
-    <Styled.FlexWrap>
-      <div className="infoWrapper">
-        <h2>{weight}kg</h2>
-        <p>Weight</p>
-      </div>
-      <Styled.Divider pokemonType={type} />
-      <div className="infoWrapper">
-        <h2>{habitat || "unknown"}</h2>
-        <p>Habitat</p>
-      </div>
-      <Styled.Divider pokemonType={type} />
-      <div className="infoWrapper">
-        <h2>{height}m</h2>
-        <p>Height</p>
-      </div>
-    </Styled.FlexWrap>
-  );
-};
-export const InfoWithLabel: React.FC<{
-  type: string;
-  label: string;
-}> = ({ type, label, children }) => {
-  return (
-    <Styled.AboutWrapper pokeType={type}>
-      <div className="labelName">
-        <p>{label}</p>
-      </div>
+// export const InfoDivider: React.FC<{
+//   weight: number;
+//   type: string;
+//   height: number;
+//   habitat: string;
+// }> = ({ weight, type, height, habitat }) => {
+//   return (
+//     <Styled.FlexWrap>
+//       <div className="infoWrapper">
+//         <h2>{weight}kg</h2>
+//         <p>Weight</p>
+//       </div>
+//       <Styled.Divider pokemonType={type} />
+//       <div className="infoWrapper">
+//         <h2>{habitat || "unknown"}</h2>
+//         <p>Habitat</p>
+//       </div>
+//       <Styled.Divider pokemonType={type} />
+//       <div className="infoWrapper">
+//         <h2>{height}m</h2>
+//         <p>Height</p>
+//       </div>
+//     </Styled.FlexWrap>
+//   );
+// };
+// export const InfoWithLabel: React.FC<{
+//   type: string;
+//   label: string;
+// }> = ({ type, label, children }) => {
+//   return (
+//     <Styled.AboutWrapper pokeType={type}>
+//       <div className="labelName">
+//         <p>{label}</p>
+//       </div>
 
-      <div className="valueProf">{children}</div>
-    </Styled.AboutWrapper>
-  );
-};
+//       <div className="valueProf">{children}</div>
+//     </Styled.AboutWrapper>
+//   );
+// };
 
-export const FloatingCatchButton: React.FC<{
-  pokemontype?: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-}> = ({ pokemontype, ...rest }) => {
-  return (
-    <Styled.Fab
-      variant="extended"
-      aria-label="add"
-      pokemontype={pokemontype}
-      {...rest}
-    >
-      <Favorite sx={{ mr: 1 }} />
-      Catch Pokemon
-    </Styled.Fab>
-  );
-};
+// export const FloatingCatchButton: React.FC<{
+//   pokemontype?: string;
+//   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+// }> = ({ pokemontype, ...rest }) => {
+//   return (
+//     <Styled.Fab
+//       variant="extended"
+//       aria-label="add"
+//       pokemontype={pokemontype}
+//       {...rest}
+//     >
+//       <Favorite sx={{ mr: 1 }} />
+//       Catch Pokemon
+//     </Styled.Fab>
+//   );
+// };
 
 export const AnimationLoading: React.FC<{ type?: string }> = ({ type }) => {
   return (
@@ -746,4 +742,17 @@ export const ModalConfirm: React.FC<IModalConfirm> = ({
   );
 };
 
-export default Styled;
+export const ImagePokemon: React.FC<{ name: string; id: string | number }> = ({
+  name,
+  id,
+}) => {
+  return (
+    <img
+      className="pokemonAvatar"
+      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+      alt={name}
+    />
+  );
+};
+
+// export default ImagePokemon;
